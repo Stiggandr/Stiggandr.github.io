@@ -1,0 +1,566 @@
+@font-face{
+  font-family: robot;
+  src: url("assets/KGAttackoftheRobots.ttf");
+}
+
+body {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    /* remove default mobile padding*/
+    margin: 0;
+      font-family: robot;
+}
+
+.playerCard {
+  position: absolute;
+  bottom: 10%;
+  left: 13%;
+  height: 55%;
+  width: 74%;
+  background-color: grey;
+  border: solid;
+  border-width: 5px;
+  margin: -5px;
+  border-color: black;
+}
+
+#gamefield {
+  position: absolute;
+  background-size: cover;
+  background-image: url(assets/background.jpg);
+}
+
+#timeline {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  width: 96%;
+  height: 30%;
+  background-color: rgba(200,180,180,.3);
+  border-style: solid;
+  border-radius: 7px;
+  border-width: 5px;
+  border-color: rgba(180,180,180,.7);
+  vertical-align: bottom;
+  display: table-cell;
+  text-align: center;
+  vertical-align: text-bottom;
+  overflow: scroll;
+  font-size: 7vw;
+}
+
+.yearTile {
+  position: relative;
+  bottom: 0px;
+  left: 1%;
+  height:5vh;
+  width: 98%;
+  background-color: rgba(150, 90,50,.8);
+  margin: .5vw 0vw .5vw 0vw;
+}
+.yearMark {
+  position: absolute;
+  left: 5%;
+  height: 100%;
+}
+.yearType {
+  position: absolute;
+  left: 10%;
+  height: 100%;
+}
+.eventMark {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  height: 100%;
+}
+
+#rightArrowBox {
+  position: absolute;
+  right: 1%;
+  top: 52%;
+  width: 10%;
+  height: 25%;
+  background-color: rgba(140, 90,50,.8);
+  z-index: 10;
+  border-style: solid;
+  border-width: 5px;
+  margin: -5px;
+  border-color: black;
+  border-radius: 2vw;
+}
+#rightArrowBox:before {
+  content: '';
+  display: block;
+  border-top: solid 10vw transparent;
+  border-left: solid 8vw rgba(255,255,255,.8);
+  border-bottom: solid 10vw transparent;
+  position: absolute;
+  top: 28%;
+  left: 10%;
+}
+#leftArrowBox {
+  position: absolute;
+  left: 1%;
+  top: 52%;
+  width: 10%;
+  height: 25%;
+  background-color: rgba(140, 90,50,.8);
+  z-index: 10;
+  border-style: solid;
+  border-width: 5px;
+  margin: -5px;
+  border-color: black;
+  border-radius: 2vw;
+}
+#leftArrowBox:before {
+  content: '';
+  display: block;
+  border-top: solid 10vw transparent;
+  border-right: solid 8vw rgba(255,255,255,.8);
+  border-bottom: solid 10vw transparent;
+  position: absolute;
+  top: 28%;
+  right: 10%;
+}
+
+@-webkit-keyframes LeftRightLeft {
+  0% {
+    left: 13%;
+  }
+  50% {
+    bottom: 12%;
+    left: 95%;
+  }
+  100% {
+      left: 13%;
+  }
+}
+@-webkit-keyframes RightLeftRight {
+    0% {
+      left: 13%;
+    }
+    50% {
+      left: -70%;
+      bottom: 8%;
+    }
+    100% {
+        left: 13%;
+    }
+}
+@-webkit-keyframes dealIn {
+    0% {
+      left: +100%;
+      bottom: +25%;
+    }
+    100% {
+      left: 13%;
+    }
+}
+
+.cardToFront {
+  -webkit-animation-name: RightLeftRight;
+  animation-name: RightLeftRight;
+  -webkit-animation-duration: .6s;
+  animation-duration: .6s;
+  -webkit-animation-timing-function: ease-out;
+  -webkit-animation-iteration-count: 1;
+}
+.cardToBack {
+  -webkit-animation-name: LeftRightLeft;
+  animation-name: LeftRightLeft;
+  -webkit-animation-duration: .6s;
+  animation-duration: .6s;
+  -webkit-animation-timing-function: ease-out;
+  -webkit-animation-iteration-count: 1;
+}
+.cardDeal{
+    -webkit-animation-name: dealIn;
+    animation-name: dealIn;
+    -webkit-animation-duration: .3s;
+    animation-duration: .3s;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-iteration-count: 1;
+}
+
+.cardName{
+  position: absolute;
+  top: 1%;
+  left: 5%;
+  height: 5%;
+  width: 90%;
+  text-align: center;
+  font-size: 7vw;
+  line-height: 100%;
+}
+.cardPicture{
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  height: 42%;
+  width: 90%;
+  border-style: double;
+  border-width: 10px;
+  margin: -10px;
+  border-color: black;
+
+}
+.cardStats{
+  position: absolute;
+  top: 56%;
+  left: 5%;
+  height: 5%;
+  width: 90%;
+  text-align: center;
+  font-size: 6vw;
+}
+
+.CardScienceImage{
+  position: absolute;
+  top: 10%;
+  height: 80%;
+
+  left: 10%;
+  width: 5%;
+  visibility: visible;
+}
+.CardScienceImage > img {
+    position:absolute;
+    top:50%;
+    min-height:100%;
+    display:block;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    min-width:100%;
+}
+
+.CardScienceCount{
+  position: absolute;
+  top: -50%;
+  height: 80%;
+
+  left: 20%;
+  width: 5%;
+  font-size: 10vw;
+}
+.CardFaithImage {
+  position: absolute;
+  top: 10%;
+  height: 80%;
+
+  left: 47%;
+  width: 5%;
+}
+.CardFaithImage > img {
+    position:absolute;
+    top:50%;
+    min-height:100%;
+    display:block;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    min-width:100%;
+}
+.CardFaithCount{
+  position: absolute;
+  top: -50%;
+  height: 80%;
+
+  left: 57%;
+  width: 5%;
+  font-size: 10vw;
+}
+.CardEthicsImage{
+  position: absolute;
+  top: 10%;
+  height: 80%;
+
+  left: 79%;
+  width: 5%;
+}
+.CardEthicsImage > img {
+    position:absolute;
+    top:50%;
+    min-height:100%;
+    display:block;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    min-width:100%;
+}
+.CardEthicsCount{
+  position: absolute;
+  top: -50%;
+  height: 85%;
+
+  left: 92%;
+  width: 5%;
+  font-size: 10vw;
+}
+
+/* add stuff*/
+
+.cardDescription{
+  position: absolute;
+  top: 65%;
+  left: 5%;
+  height: 25%;
+  width: 90%;
+  text-align: left;
+  font-size: 5vw;
+}
+.cardSelect{
+  position: absolute;
+  top: 91%;
+  left: 5%;
+  height: 8%;
+  width: 90%;
+  background-color: red;
+  text-align: center;
+  border-radius: 20%;
+  font-size: 7vw;
+}
+.cardSelect:active {
+    box-shadow: 0px 0px 5px 25px rgb(255, 255, 255);
+}
+
+#verificationBox {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  height: 10%;
+  width: 60%;
+  text-align: center;
+  background-color: brown;
+  border-radius: 10px;
+}
+#verificationHead {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 30%;
+  width: 100%;
+  text-align: center;
+  background-color: Chocolate;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  font-size: 4vw;
+
+}
+#verificationYes {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  height: 50%;
+  width: 35%;
+  text-align: center;
+  background-color: green;
+  border-radius: 50px;
+  font-size: 8vw;
+}
+#verificationNo {
+  position: absolute;
+  top: 40%;
+  left: 55%;
+  height: 50%;
+  width: 35%;
+  text-align: center;
+  background-color: red;
+  border-radius: 50px;
+  font-size: 8vw;
+}
+
+#stats {
+  position: absolute;
+  bottom: 1%;
+  left: 0%;
+  height: 8%;
+  width: 100%;
+  font-size: 10vw;
+  background-color: rgba(180,180,180,.7);
+}
+#populationImage{
+  position: absolute;
+  top: 10%;
+  height: 80%;
+
+  left: 10%;
+
+}
+#populationImage > img {
+    position:absolute;
+    top:50%;
+    min-height:100%;
+    display:block;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    min-width:100%;
+}
+#populationCount{
+  position: absolute;
+  top: 10%;
+  height: 80%;
+
+  left: 16%;
+  width: 5%;
+
+}
+#ScienceImage{
+  position: absolute;
+  top: 10%;
+  height: 80%;
+
+  left: 39%;
+  width: 5%;
+  visibility: visible;
+}
+#ScienceImage > img {
+    position:absolute;
+    top:50%;
+    min-height:100%;
+    display:block;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    min-width:100%;
+}
+#ScienceCount{
+  position: absolute;
+  top: 10%;
+  height: 80%;
+
+  left: 48%;
+  width: 5%;
+}
+#FaithImage {
+  position: absolute;
+  top: 10%;
+  height: 80%;
+
+  left: 59%;
+  width: 5%;
+}
+#FaithImage > img {
+    position:absolute;
+    top:50%;
+    min-height:100%;
+    display:block;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    min-width:100%;
+}
+#FaithCount{
+  position: absolute;
+  top: 10%;
+  height: 80%;
+
+  left: 68%;
+  width: 5%;
+}
+#EthicsImage{
+  position: absolute;
+  top: 10%;
+  height: 80%;
+
+  left: 79%;
+  width: 5%;
+}
+#EthicsImage > img {
+    position:absolute;
+    top:50%;
+    min-height:100%;
+    display:block;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    min-width:100%;
+}
+#EthicsCount{
+  position: absolute;
+  top: 10%;
+  height: 85%;
+
+  left: 88%;
+  width: 5%;
+}
+
+#EventScreen{
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  height: 85%;
+  width: 90%;
+  z-index: 20;
+  background-color: lightgrey;
+  border: solid;
+  border-width: 1vw;
+  border-color: black;
+  margin: -1vw;
+  border-radius: 3vw;
+}
+#EventName{
+  position: absolute;
+  top: 1%;
+  left: 5%;
+  width: 90%;
+  height: 10%;
+  text-align: center;
+  font-size: 9vw;
+}
+#EventPic{
+    position: absolute;
+    top: 9%;
+    left: 5%;
+    width: 90%;
+    height: 40%;
+    background-color: grey;
+    border-style: solid;
+    border-color: black;
+}
+#EventDesc{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    width: 90%;
+    height: 10%;
+    font-size: 6vw;
+}
+#EventScience{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 10vw;
+    font-size: 10vw;
+    text-align: center;
+    padding: 1vw;
+}
+#EventFaith{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 10vw;
+    font-size: 10vw;
+    text-align: center;
+    padding: 1vw;
+}
+#EventEthics{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 10vw;
+    font-size: 10vw;
+    text-align: center;
+    padding: 1vw;
+}
+#EventCont {
+  position: absolute;
+  bottom: 2%;
+  left: 5%;
+  width: 90%;
+  height: 8%;
+  text-align: center;
+  font-size: 10vw;
+  background-color: red;
+  border-radius: 5vw;
+}
